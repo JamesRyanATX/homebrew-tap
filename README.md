@@ -1,8 +1,11 @@
 # JamesRyanATX Homebrew tap
 
 ```sh
+brew trust --tap jamesryanatx/tap   # required by Homebrew 7+ for third-party taps
 brew install JamesRyanATX/tap/fcbnerd
 ```
+
+Formulae build from source, so current Command Line Tools are required.
 
 | Formula | |
 |---|---|
