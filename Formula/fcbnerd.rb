@@ -4,8 +4,8 @@
 class Fcbnerd < Formula
   desc "Bind MIDI foot controller events to shell commands, or stream them as JSON"
   homepage "https://github.com/JamesRyanATX/fcbnerd"
-  url "https://github.com/JamesRyanATX/fcbnerd/releases/download/v0.2.0/fcbnerd-0.2.0-macos-universal.tar.gz"
-  sha256 "45fa96e7259e20c9568d7d66a8969d5c310451f9dcb4339e84c34c6d0b02515a"
+  url "https://github.com/JamesRyanATX/fcbnerd/releases/download/v0.2.1/fcbnerd-0.2.1-macos-universal.tar.gz"
+  sha256 "15ecc6c2fe4d349d10a2b0140645aa18af824d9e7745c53d0441cf3eb1d0c918"
   license "MIT"
   head "https://github.com/JamesRyanATX/fcbnerd.git", branch: "main"
 
