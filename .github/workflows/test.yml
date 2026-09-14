@@ -1,0 +1,38 @@
+name: Test formulae
+
+# Installs and tests every formula whenever the tap changes, including the
+# commits the fcbnerd release workflow pushes.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  fcbnerd:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Tap this checkout
+        run: |
+          # Homebrew 7+ refuses to load third-party taps until they're trusted.
+          if brew help trust > /dev/null 2>&1; then
+            brew trust --tap jamesryanatx/tap
+          fi
+          brew tap jamesryanatx/tap "$GITHUB_WORKSPACE"
+
+      - name: Style
+        run: brew style jamesryanatx/tap/fcbnerd
+
+      - name: Install
+        run: brew install jamesryanatx/tap/fcbnerd
+
+      - name: Test
+        run: brew test jamesryanatx/tap/fcbnerd
+
+      - name: Audit
+        run: brew audit --strict --online jamesryanatx/tap/fcbnerd
